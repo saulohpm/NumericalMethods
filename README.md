@@ -1,4 +1,4 @@
-# Integraties
+# Numerical Methods
 
 A simple Python library for numerical integration.
 
@@ -15,14 +15,25 @@ The project was created for studying numerical methods and approximating definit
 ## Project Structure
 
 ```text
-integraties/
+NumericalMethods/
 │
 ├── main.py
 │
+├── visualization/
+│   ├── __init__.py
+│   └── plotter.py
+│
+├── series/
+│   ├── __init__.py
+│   └── fourier.py
+│
 └── integration/
-    ├── retangle.py
+    │   __init__.py
+    ├── rectangle.py
     ├── trapezoidal.py
-    └── simpson1.py
+    ├── simpson1.py
+    ├── simpson2.py
+    └── gauss_legendre.py
 ```
 
 ## Requirements
@@ -41,7 +52,7 @@ Import the desired integration method and provide:
 Example:
 
 ```python
-f = lambda x: x**2
+f = lambda x: x ** 2
 
 result = integrate.trapezius(f, 0, 1, 1000)
 print(result)

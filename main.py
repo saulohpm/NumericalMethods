@@ -1,24 +1,41 @@
 import numpy as np
-from integration import retangle, trapezoidal, simpson1, simpson2
+import os
+from integration import rectangle, trapezoidal, simpson1, simpson2, gauss_legendre
+from visualization.plotter import plot_function
+from scipy.integrate import quad
 
-# Intervalo de Integração
-a = 0
-b = 1
 
-# Malha (Domínio)
+# Integration Interval
+a = -100
+b = 100
+
+n = 300
+
+# Mesh (Domain)
 x = np.linspace(a, b, 1000)
 
-# Função f(x)
-f = lambda x: 3 * x ** 2 - 6 * x ** 3
+# Fuction f(x)
+f = lambda x: np.sin(x) ** 2
 
-# Calculo da Integral
-retantulo = retangle.integrate(f, a, b)
-trapezio = trapezoidal.integrate(f, a, b)
-regrasimpson = simpson1.integrate(f, a, b)
-regrasimpson2 = simpson2.integrate(f, a, b)
+# Integral Calculation
+retantulo = rectangle.integrate(f, a, b, n)
+trapezio = trapezoidal.integrate(f, a, b, n)
+simpsonsrule = simpson1.integrate(f, a, b, n)
+simpsonsrule2 = simpson2.integrate(f, a, b, n)
+gausslegendre = gauss_legendre.integrate(f, a, b, n)
 
-# Print no CLI
-print(f"Integrando f(x) usando a Regra do Retangulo, obtemos: {round(retantulo, 5)}")
-print(f"\nIntegrando f(x) usando a Regra do Trapézio, obtemos: {round(trapezio, 5)}")
-print(f"\nIntegrando f(x) usando a Primeira Regra de Simpson, obtemos: {round(regrasimpson, 5)}")
-print(f"\nIntegrando f(x) usando a Segunda Regra de Simpson, obtemos: {round(regrasimpson2, 5)}")
+# Print on CLI
+os.system("cls" if os.name == "nt" else "clear")
+
+print(f"Integrating f(x) using:")
+
+print(f"\nRectangle Rule, we obtain: {round(retantulo, 5)}")
+print(f"\nTrapezoid Rule, we obtain: {round(trapezio, 5)}")
+print(f"\nFirst Simpson's Rule, we obtain: {round(simpsonsrule, 5)}")
+print(f"\nSecond Simpson's Rule, we obtain: {round(simpsonsrule2, 5)}")
+print(f"\nGauss-Legendre Quadranture, we obtain: {round(gausslegendre, 5)}")
+
+print(f"\nScipy Library Quadranture, we obtain: {round(quad(f, a, b)[0], 5)}")
+
+# Plot:
+# plot_function(f, a, b)

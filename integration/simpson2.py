@@ -1,4 +1,7 @@
 def integrate(f, a, b, n = 100):
+
+    if n % 3 != 0:
+        raise ValueError("ERRO: 'n' deve ser múltiplo de 3 para Simpson 3/8")
     
     soma = 0
     L = b - a
