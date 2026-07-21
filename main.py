@@ -1,42 +1,25 @@
 import numpy as np
-import os
-from integration import rectangle, trapezoidal, simpson1, simpson2, gauss_legendre
-from series import fourier
-from visualization.plotter import plot_function
-from scipy.integrate import quad
 
+from integration import simpson1
+from differentiation.finite_differences import central
 
-# Integration Interval
-a = -np.pi
-b = np.pi
-L = (b - a) / 2
+# ==========================================================
+# Numerical Methods Library - Quick Example
+#
+# This file contains only a minimal example of how to use
+# the library.
+#
+# For benchmarks, comparisons between methods, plots and
+# detailed explanations, see the Jupyter Notebook.
+# ==========================================================
 
-n = 30
+# Function
+f = lambda x: np.cos(x)**5 - x**50
 
-# Mesh (Domain)
-x = np.linspace(a, b, 1000)
+# Integration example
+integral = simpson1.integrate(f, -np.pi, np.pi, 12)
+print(f"Integral (Simpson's Rule): {integral:.6f}")
 
-# Fuction f(x)
-f = lambda x: np.cos(x) ** 2
-
-# Integral Calculation
-retantulo = rectangle.integrate(f, a, b, n)
-trapezio = trapezoidal.integrate(f, a, b, n)
-simpsonsrule = simpson1.integrate(f, a, b, n)
-simpsonsrule2 = simpson2.integrate(f, a, b, n)
-gausslegendre = gauss_legendre.integrate(f, a, b, n)
-
-# Print on CLI
-os.system("cls" if os.name == "nt" else "clear")
-
-print(f"Integrating f(x) using:")
-
-print(f"\nRectangle Rule, we obtain: {round(retantulo, 5)}")
-print(f"\nTrapezoid Rule, we obtain: {round(trapezio, 5)}")
-print(f"\nFirst Simpson's Rule, we obtain: {round(simpsonsrule, 5)}")
-print(f"\nSecond Simpson's Rule, we obtain: {round(simpsonsrule2, 5)}")
-print(f"\nGauss-Legendre Quadranture, we obtain: {round(gausslegendre, 5)}")
-print(f"\nScipy Library Quadranture, we obtain: {round(quad(f, a, b)[0], 5)}")
-
-# Plot:
-plot_function(f, x, a, b, fourier.approx_function(f, x, L, n))
+# Differentiation example
+derivative = central(f, 2.0, 0.001)
+print(f"Derivative at x = 2: {derivative:.6f}")
