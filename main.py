@@ -1,7 +1,7 @@
 import numpy as np
 
-from integration import simpson1
-from differentiation.finite_differences import central
+from integration import simpson1, monte_carlo
+from differentiation.finites_differences import central
 
 # ==========================================================
 # Numerical Methods Library - Quick Example
@@ -14,11 +14,19 @@ from differentiation.finite_differences import central
 # ==========================================================
 
 # Function
-f = lambda x: np.cos(x)**5 - x**50
+f = lambda x: x ** 2
+
+n = 12 * 1000
 
 # Integration example
-integral = simpson1.integrate(f, -np.pi, np.pi, 12)
+integral = simpson1.integrate(f, -np.pi, np.pi, n)
 print(f"Integral (Simpson's Rule): {integral:.6f}")
+
+integral2 = monte_carlo.integrate(f, -np.pi, np.pi, n)
+print(f"Integral (Monte Carlo): {integral2:.6f}")
+
+# Taylor Series Example
+
 
 # Differentiation example
 derivative = central(f, 2.0, 0.001)

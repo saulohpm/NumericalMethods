@@ -1,6 +1,5 @@
 import numpy as np
 from scipy import integrate
-import matplotlib.pyplot as plt
 
 def approx_function(f, x, L= 1, n = 4):
     

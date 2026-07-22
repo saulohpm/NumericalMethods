@@ -16,9 +16,16 @@ NumericalMethods/
 │   ├── trapezoidal.py
 │   ├── simpson1.py
 │   ├── simpson2.py
+│   ├── monte_carlo.py
 │   └── gauss_legendre.py
 │
+├── tests/
+│   ├── test_differentiation.py
+│   ├── test_integration.py
+│   └── test_series.py
+│
 ├── series/
+│   ├── taylor.py
 │   └── fourier.py
 │
 ├── differentiation
