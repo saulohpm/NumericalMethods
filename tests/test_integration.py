@@ -1,8 +1,8 @@
-from src.integration.rectangle import integrate as rectangle
-from src.integration.trapezoidal import integrate as trapezoidal
-from src.integration.simpson1 import integrate as simpson1
-from src.integration.simpson2 import integrate as simpson2
-from src.integration.gauss_legendre import integrate as gauss_legendre
+from src.numerical_methods.integration.rectangle import integrate as rectangle
+from src.numerical_methods.integration.trapezoidal import integrate as trapezoidal
+from src.numerical_methods.integration.simpson1 import integrate as simpson1
+from src.numerical_methods.integration.simpson2 import integrate as simpson2
+from src.numerical_methods.integration.gauss_legendre import integrate as gauss_legendre
 
 def f(x):
     return x ** 2

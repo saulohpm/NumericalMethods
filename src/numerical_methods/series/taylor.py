@@ -1,5 +1,5 @@
 import math
-from src.differentiation import finites_differences
+from src.numerical_methods.differentiation import finites_differences
 
 def approx_function(f, x, a = 1, n = 8, deltax = 1e-2):
     """

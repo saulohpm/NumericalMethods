@@ -1,4 +1,4 @@
-def calculate(f, a: float, b: float, error: float):
+def calculate(f, a: float, b: float, error):
     """
     Finds a root of a continuous function using the bisection method.
 
@@ -21,7 +21,6 @@ def calculate(f, a: float, b: float, error: float):
     else:
         while (b - a) > error:
             x = (a + b) / 2
-            y = f(x)
 
             if f(a) * f(x) < 0:
                 b = x
