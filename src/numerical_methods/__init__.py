@@ -28,7 +28,9 @@ from .series.fourier import approx_function as fourier_approx
 
 from .root.bisection import calculate as bisection_calculate
 
-__version__ = "2.0.0"
+from .visualization.plotter import plot_function
+
+__version__ = "2.4.0"
 
 __all__ = [
     "rectangle_integrate",
@@ -42,5 +44,6 @@ __all__ = [
     "central",
     "taylor_approx",
     "fourier_approx",
-    "bisection_calculate"
+    "bisection_calculate",
+    "plot_function"
 ]
