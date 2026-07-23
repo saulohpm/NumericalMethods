@@ -1,0 +1,1 @@
+"""Function approximation via series expansion: Taylor and Fourier series."""

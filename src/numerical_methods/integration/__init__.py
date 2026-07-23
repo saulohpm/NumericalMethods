@@ -1,0 +1,1 @@
+"""Numerical integration methods: rectangle, trapezoidal, Simpson's 1/3 and 3/8 rules, Monte Carlo and Gauss-Legendre quadrature."""

@@ -1,4 +1,4 @@
-from differentiation.finites_differences import forward, backward, central
+from src.differentiation.finites_differences import forward, backward, central
 
 EXPECTED = 6
 
