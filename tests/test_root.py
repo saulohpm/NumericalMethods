@@ -1,4 +1,5 @@
-from src.numerical_methods.root import bisection, newton_raphson, redders
+from src.numerical_methods.root import ridders
+from src.numerical_methods.root import bisection, newton_raphson
 
 def quadratic(x):
     return x ** 2 - 9
@@ -19,7 +20,7 @@ def test_newton_raphson():
     assert abs(result - expected) < error
 
 
-def test_redders():
-    result, _ = redders.calculate(quadratic, 0, 5, 100)
+def test_ridders():
+    result, _ = ridders.calculate(quadratic, 0, 5, 100)
 
     assert abs(result - expected) < error

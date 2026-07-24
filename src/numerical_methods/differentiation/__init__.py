@@ -1,1 +1,1 @@
-"""Numerical differentiation methods: forward, backward and central finite differences."""
+"""Numerical differentiation methods."""

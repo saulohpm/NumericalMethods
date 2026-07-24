@@ -12,10 +12,12 @@ tests and docstrings, as a way to also practice good project structure.
 ```text
 NumericalMethods/
 │
-├── notebook.ipynb
 ├── pyproject.toml
 ├── LICENSE.txt
 ├── README.md
+│
+├── examples/
+│   └── notebook.ipynb
 │
 ├── src/
 │   └── numerical_methods/
@@ -38,7 +40,8 @@ NumericalMethods/
 │       │
 │       ├── differentiation/
 │       │   ├── __init__.py
-│       │   └── finites_differences.py
+│       │   ├── finites_differences.py
+│       │   └── jacobian.py
 │       │
 │       ├── series/
 │       │   ├── __init__.py
