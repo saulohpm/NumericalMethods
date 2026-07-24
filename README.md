@@ -10,12 +10,12 @@ tests and docstrings, as a way to also practice good project structure.
 ## Project structure
 
 ```text
-Numerical-Methods/
+NumericalMethods/
 │
-├── main.py                     # Minimal usage example (usando 'from src...')
-├── notebook.ipynb              # Detailed examples and plots
-├── pyproject.toml              # Project settings and setuptool
-├── README.md                   # Basic Document
+├── notebook.ipynb
+├── pyproject.toml
+├── LICENSE.txt
+├── README.md
 │
 ├── src/
 │   └── numerical_methods/
@@ -32,7 +32,9 @@ Numerical-Methods/
 │       │
 │       ├── root/
 │       │   ├── __init__.py
-│       │   └── bisection.py
+│       │   ├── bisection.py
+│       │   ├── newton_raphson.py
+│       │   └── redders.py
 │       │
 │       ├── differentiation/
 │       │   ├── __init__.py
@@ -44,12 +46,14 @@ Numerical-Methods/
 │       │   └── fourier.py
 │       │
 │       └── visualization/
-│           └── __init__.py
+│           ├── __init__.py
+│           └── plotter.py
 │
 └── tests/
     ├── __init__.py
     ├── test_integration.py
     ├── test_differentiation.py
+    ├── test_root.py
     └── test_series.py
 ```
 
@@ -76,12 +80,6 @@ from src.integration import trapezoidal
 f = lambda x: x ** 2
 result = trapezoidal.integrate(f, 0, 1, n=1000)
 print(result)
-```
-
-A quick runnable example is also available in `main.py`:
-
-```bash
-python main.py
 ```
 
 For more detailed examples, including comparisons between methods and

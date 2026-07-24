@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 def plot_function(f, x, a = None, b = None, f2 = None):
     """
@@ -44,9 +45,13 @@ def plot_function(f, x, a = None, b = None, f2 = None):
         raise ValueError("ERROR: a and b and f2 cannot be None")
 
     else:
-        plt.title(f"Interactions using fourier series")
+        plt.title(f"Interactions using series")
         plt.plot(x, y, label='f(x)')
-        plt.plot(x, f2, label='Fourier')
+        plt.plot(x, f2, label='Series')
+        plt.xlim(a, b)
+        y_min, y_max = np.min(y), np.max(y)
+        margem = (y_max - y_min) * 0.1 if y_max != y_min else 1.0
+        plt.ylim(y_min - margem, y_max + margem)
         
     plt.legend()
     plt.grid(True, alpha=0.75)

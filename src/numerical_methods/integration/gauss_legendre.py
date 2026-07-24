@@ -1,4 +1,3 @@
-import numpy as np
 from numpy.polynomial.legendre import leggauss
 
 def integrate(f, a: float, b: float, n: int = 5):

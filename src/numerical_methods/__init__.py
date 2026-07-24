@@ -6,10 +6,10 @@ Educational implementations of classic numerical methods: numerical
 integration, differentiation, series approximation and simple
 visualization utilities.
 
-The most commonly used functions are re-exported here for convenience,
-so they can be imported directly from the top-level package, e.g.:
-
-    from src import trapezoidal_integrate, central
+Usage:
+    from numerical_methods import trapezoidal_integrate, fd
+    
+    df = fd.central(f, x)
 """
 
 # src/numerical_methods/__init__.py
@@ -21,16 +21,18 @@ from .integration.simpson2 import integrate as simpson2_integrate
 from .integration.monte_carlo import integrate as monte_carlo_integrate
 from .integration.gauss_legendre import integrate as gauss_legendre_integrate
 
-from .differentiation.finites_differences import forward, backward, central
+from .differentiation import finites_differences as fd
 
 from .series.taylor import approx_function as taylor_approx
 from .series.fourier import approx_function as fourier_approx
 
 from .root.bisection import calculate as bisection_calculate
+from .root.newton_raphson import calculate as newton_raphson_calculate
+from .root.redders import calculate as redders_calculate
 
 from .visualization.plotter import plot_function
 
-__version__ = "2.4.0"
+__version__ = "2.4.2"
 
 __all__ = [
     "rectangle_integrate",
@@ -39,11 +41,11 @@ __all__ = [
     "simpson2_integrate",
     "monte_carlo_integrate",
     "gauss_legendre_integrate",
-    "forward",
-    "backward",
-    "central",
+    "fd",
     "taylor_approx",
     "fourier_approx",
     "bisection_calculate",
+    "newton_raphson_calculate",
+    "redders_calculate",
     "plot_function"
 ]
