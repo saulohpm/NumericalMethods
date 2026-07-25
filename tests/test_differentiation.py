@@ -1,4 +1,5 @@
 from src.numerical_methods.differentiation.finites_differences import forward, backward, central
+from src.numerical_methods.differentiation import richardson
 
 EXPECTED = 6
 
@@ -16,3 +17,7 @@ def test_backward():
 
 def test_central():
     assert abs(central(quadratic, 3) - EXPECTED) < 1e-6
+
+
+def test_richardson():
+    assert abs(richardson.calculate(quadratic, 3, 1e-2) - EXPECTED) < 1e-10

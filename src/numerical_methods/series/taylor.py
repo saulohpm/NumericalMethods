@@ -1,7 +1,7 @@
 import math
-from ..differentiation import finites_differences
+from ..differentiation import richardson
 
-def approx_function(f, x, a, n = 3, deltax = 1e-2):
+def approx_function(f, x, a, n = 3, deltax = 1e-4):
     """
     Approximate f(x) using its Taylor series expansion around the point a.
 
@@ -32,13 +32,13 @@ def approx_function(f, x, a, n = 3, deltax = 1e-2):
         derivative = f
 
         for i in range(n):
-            deltax_progressive = deltax * (2 ** i)
-            derivative = lambda x, derivative=derivative: finites_differences.central(derivative, x, deltax_progressive)
+            derivative = lambda x, derivative=derivative: richardson.calculate(derivative, x, deltax)
             derivatives.append(derivative(a))
 
         return derivatives
 
     derivatives = derivatives_calculate(f, a, n, deltax)
+    print(derivatives)
     total = 0
 
     for i in range(0, n + 1):

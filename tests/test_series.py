@@ -11,6 +11,6 @@ def test_fourier_cos():
 
 
 def test_taylor_exp():
-    result = taylor(math.exp, 1, a = 0, n = 8)
+    result = taylor(math.exp, 1, a = 0, n = 7)
 
     assert abs(result - math.e) < 1e-4

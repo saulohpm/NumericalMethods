@@ -41,7 +41,8 @@ NumericalMethods/
 │       ├── differentiation/
 │       │   ├── __init__.py
 │       │   ├── finites_differences.py
-│       │   └── jacobian.py
+│       │   ├── jacobian.py
+│       │   └── richardson.py
 │       │
 │       ├── series/
 │       │   ├── __init__.py
