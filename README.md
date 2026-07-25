@@ -32,6 +32,10 @@ NumericalMethods/
 │       │   ├── monte_carlo.py
 │       │   └── gauss_legendre.py
 │       │
+│       ├── linear_algebra/
+│       │   ├── __init__.py
+│       │   └── jacobian.py
+│       │
 │       ├── root/
 │       │   ├── __init__.py
 │       │   ├── bisection.py
@@ -41,7 +45,6 @@ NumericalMethods/
 │       ├── differentiation/
 │       │   ├── __init__.py
 │       │   ├── finites_differences.py
-│       │   ├── jacobian.py
 │       │   └── richardson.py
 │       │
 │       ├── series/

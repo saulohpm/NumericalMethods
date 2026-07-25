@@ -1,5 +1,6 @@
 import math
-from ..differentiation import richardson
+import sys
+from ..differentiation import finites_differences as fn
 
 def approx_function(f, x, a, n = 3, deltax = 1e-4):
     """
@@ -12,12 +13,12 @@ def approx_function(f, x, a, n = 3, deltax = 1e-4):
     x : float or ndarray
         Point, or array of points (mesh), at which the Taylor series
         approximation is evaluated.
-    a : float, optional
+    a : float
         Point around which the function is expanded.
     n : int, optional
         Order (number of terms) of the Taylor series (default 3).
     deltax : float, optional
-        Step size used to approximate each derivative (default 1e-2).
+        Step size used to approximate each derivative (default 1e-4).
 
     Returns
     -------
@@ -26,22 +27,21 @@ def approx_function(f, x, a, n = 3, deltax = 1e-4):
         polynomial centered at a.
     """
 
-    def derivatives_calculate(f, a, n, deltax):
+    EPS = sys.float_info.epsilon
 
+    def derivatives_calculate(f, a, n):
         derivatives = [f(a)]
-        derivative = f
 
-        for i in range(n):
-            derivative = lambda x, derivative=derivative: richardson.calculate(derivative, x, deltax)
-            derivatives.append(derivative(a))
+        for i in range(1, n + 1):
+            deltax_new = EPS ** (1 / (i + 2))
+            derivatives.append(fn.central_nth(f, a, deltax_new, i))
 
         return derivatives
 
-    derivatives = derivatives_calculate(f, a, n, deltax)
-    print(derivatives)
+    derivatives = derivatives_calculate(f, a, n)
     total = 0
 
-    for i in range(0, n + 1):
+    for i in range(n + 1):
         total += derivatives[i] / math.factorial(i) * (x - a) ** i
 
     return total
