@@ -15,7 +15,7 @@ def approx_function(f, x, a, n = 3, deltax = 1e-2):
     a : float, optional
         Point around which the function is expanded.
     n : int, optional
-        Order (number of terms) of the Taylor series (default 8).
+        Order (number of terms) of the Taylor series (default 3).
     deltax : float, optional
         Step size used to approximate each derivative (default 1e-2).
 
@@ -26,12 +26,22 @@ def approx_function(f, x, a, n = 3, deltax = 1e-2):
         polynomial centered at a.
     """
 
-    total = f(a)
-    derivative = f
+    def derivatives_calculate(f, a, n, deltax):
 
-    for i in range(1, n + 1):
-        previous = derivative
-        derivative = lambda x, previous=previous: finites_differences.central(previous, x, deltax)
-        total += derivative(a) / math.factorial(i) * (x - a) ** i
+        derivatives = [f(a)]
+        derivative = f
+
+        for i in range(n):
+            deltax_progressive = deltax * (2 ** i)
+            derivative = lambda x, derivative=derivative: finites_differences.central(derivative, x, deltax_progressive)
+            derivatives.append(derivative(a))
+
+        return derivatives
+
+    derivatives = derivatives_calculate(f, a, n, deltax)
+    total = 0
+
+    for i in range(0, n + 1):
+        total += derivatives[i] / math.factorial(i) * (x - a) ** i
 
     return total
