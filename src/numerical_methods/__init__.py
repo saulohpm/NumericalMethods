@@ -34,7 +34,7 @@ from .root.ridders import calculate as ridders_calculate
 
 from .visualization.plotter import plot_function
 
-__version__ = "2.9.0"
+__version__ = "3.0.0"
 
 __all__ = [
     "rectangle_integrate",

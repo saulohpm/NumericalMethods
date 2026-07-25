@@ -15,9 +15,12 @@ NumericalMethods/
 ├── pyproject.toml
 ├── LICENSE.txt
 ├── README.md
+├── .gitattributes
+├── .gitignore
 │
 ├── examples/
-│   └── notebook.ipynb
+│   ├── benchmark.ipynb
+│   └── demonstration.ipynb
 │
 ├── src/
 │   └── numerical_methods/
@@ -40,7 +43,7 @@ NumericalMethods/
 │       │   ├── __init__.py
 │       │   ├── bisection.py
 │       │   ├── newton_raphson.py
-│       │   └── redders.py
+│       │   └── ridders.py
 │       │
 │       ├── differentiation/
 │       │   ├── __init__.py
@@ -85,7 +88,7 @@ the tests.
 from src.integration import trapezoidal
 
 f = lambda x: x ** 2
-result = trapezoidal.integrate(f, 0, 1, n=1000)
+result = trapezoidal.integrate(f, 0, 1, n = 1000)
 print(result)
 ```
 

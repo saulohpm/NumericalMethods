@@ -33,7 +33,7 @@ def calculate(F, x, h):
 
         F1 = F(x_copy)
 
-        for line in range(0, m - 1):
+        for line in range(0, m):
             J[line][column] = (F1[line] - F0[line]) / h
 
     return J
