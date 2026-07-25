@@ -1,5 +1,9 @@
 # Numerical Methods
 
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Version](https://img.shields.io/badge/version-3.1.0-orange)
+
 A small Python library with implementations of classic numerical methods for
 integration, differentiation, and series approximation.
 
@@ -47,7 +51,7 @@ NumericalMethods/
 │       │
 │       ├── differentiation/
 │       │   ├── __init__.py
-│       │   ├── finites_differences.py
+│       │   ├── finite_differences.py
 │       │   └── richardson.py
 │       │
 │       ├── series/
@@ -67,15 +71,11 @@ NumericalMethods/
     └── test_series.py
 ```
 
-## Requirements
-
-* Python 3.9 or later
-
 ## Installation
 
 ```bash
-git clone <repository-url>
-cd Numerical-Methods
+gh repo clone saulohpm/NumericalMethods
+cd NumericalMethods
 pip install -e ".[dev]"
 ```
 

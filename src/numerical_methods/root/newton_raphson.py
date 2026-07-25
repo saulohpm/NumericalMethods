@@ -1,4 +1,4 @@
-from ..differentiation import finites_differences as fn
+from ..differentiation import finite_differences as fn
 
 def calculate(f, x0: float, n: int, tolerance: float = 1e-6):
     """

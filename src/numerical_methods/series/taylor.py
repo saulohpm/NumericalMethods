@@ -1,6 +1,6 @@
 import math
 import sys
-from ..differentiation import finites_differences as fn
+from ..differentiation import finite_differences as fn
 
 def approx_function(f, x, a, n = 3, deltax = 1e-4):
     """

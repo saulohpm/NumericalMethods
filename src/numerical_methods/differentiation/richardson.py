@@ -1,4 +1,4 @@
-from .finites_differences import central
+from .finite_differences import central
 
 def calculate(f, x0, h):
 

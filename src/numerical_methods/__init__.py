@@ -13,7 +13,7 @@ Usage:
 """
 
 # src/numerical_methods/__init__.py
-from .differentiation import finites_differences as fd
+from .differentiation import finite_differences as fd
 from .differentiation.richardson import calculate as richardson_calculate
 
 from .integration.rectangle import integrate as rectangle_integrate
@@ -34,7 +34,7 @@ from .root.ridders import calculate as ridders_calculate
 
 from .visualization.plotter import plot_function
 
-__version__ = "3.0.0"
+__version__ = "3.1.0"
 
 __all__ = [
     "rectangle_integrate",
