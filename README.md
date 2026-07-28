@@ -2,14 +2,12 @@
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Version](https://img.shields.io/badge/version-3.1.0-orange)
+![Version](https://img.shields.io/badge/version-3.2.0-orange)
 
 A small Python library with implementations of classic numerical methods for
 integration, differentiation, and series approximation.
 
-This started as a study project to practice numerical analysis concepts and
-has since been reorganized as an installable Python package, with unit
-tests and docstrings, as a way to also practice good project structure.
+This started as a study project to practice numerical analysis concepts and has since been reorganized as an installable Python package, with unit tests and docstrings, as a way to also practice good project structure.
 
 ## Project structure
 
@@ -67,6 +65,7 @@ NumericalMethods/
     ├── __init__.py
     ├── test_integration.py
     ├── test_differentiation.py
+    ├── test_linear_algebra.py
     ├── test_root.py
     └── test_series.py
 ```
