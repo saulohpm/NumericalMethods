@@ -2,24 +2,33 @@ def calculate(f, a: float, b: float, n: int, tolerance: float = 1e-6):
     """
     Finds a root of a function using Ridders' method.
 
-    Parameters:
-        f (callable): Continuous function for which the root is searched.
-        a (float): Lower bound of the initial interval.
-        b (float): Upper bound of the initial interval.
-        n (int): Maximum number of iterations allowed.
-        tolerance (float): Desired tolerance for convergence.
+    Parameters
+    ----------
+    f : callable
+        Continuous function for which the root is searched.
+    a : float
+        Lower bound of the initial interval.
+    b : float
+        Upper bound of the initial interval.
+    n : int
+        Maximum number of iterations allowed.
+    tolerance : float, optional
+        Desired tolerance for convergence (default is 1e-6).
 
-    Returns:
-        tuple:
-            - float: Approximation of the root.
-            - int: Number of iterations performed.
+    Returns
+    -------
+    float
+        Approximation of the root.
+    int
+        Number of iterations performed.
 
-    Raises:
-        ValueError:
-            - If 'a' is greater than 'b'.
-            - If the initial interval does not satisfy f(a) * f(b) < 0.
-            - If the auxiliary quantity S is too close to zero.
-            - If the method does not converge within the maximum number of iterations.
+    Raises
+    ------
+    ValueError
+        If `a` is greater than `b`; if the initial interval does not
+        satisfy f(a) * f(b) < 0; if the auxiliary quantity S is too
+        close to zero; or if the method does not converge within the
+        maximum number of iterations.
     """
 
     def sgn(x):

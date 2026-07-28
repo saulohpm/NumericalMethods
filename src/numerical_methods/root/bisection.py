@@ -2,17 +2,26 @@ def calculate(f, a: float, b: float, error):
     """
     Finds a root of a continuous function using the bisection method.
 
-    Parameters:
-        f (callable): Function for which the root is searched.
-        a (float): Lower bound of the initial interval.
-        b (float): Upper bound of the initial interval.
-        error (float): Desired accuracy of the result.
+    Parameters
+    ----------
+    f : callable
+        Function for which the root is searched.
+    a : float
+        Lower bound of the initial interval.
+    b : float
+        Upper bound of the initial interval.
+    error : float
+        Desired accuracy of the result.
 
-    Returns:
-        float: Approximation of the root.
+    Returns
+    -------
+    float
+        Approximation of the root.
 
-    Raises:
-        ValueError: If f(a) and f(b) do not have opposite signs.
+    Raises
+    ------
+    ValueError
+        If f(a) and f(b) do not have opposite signs.
     """
 
     if f(a) * f(b) >= 0:

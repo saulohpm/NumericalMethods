@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Version](https://img.shields.io/badge/version-3.2.0-orange)
+![Version](https://img.shields.io/badge/version-3.3.0-orange)
 
 A small Python library with implementations of classic numerical methods for
 integration, differentiation, and series approximation.
@@ -39,6 +39,7 @@ NumericalMethods/
 │       │
 │       ├── linear_algebra/
 │       │   ├── __init__.py
+│       │   ├── gauss_elimination.py
 │       │   └── jacobian.py
 │       │
 │       ├── root/
