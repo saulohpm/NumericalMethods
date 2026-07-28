@@ -27,7 +27,7 @@ from .series.taylor import approx_function as taylor_approx
 from .series.fourier import approx_function as fourier_approx
 
 from .linear_algebra.jacobian import calculate as jacobian_calculate
-from .linear_algebra.gauss_elimination import gauss_method, pivoting
+from .linear_algebra.gauss_elimination import gauss_method, pivoting, determinant
 
 from .root.bisection import calculate as bisection_calculate
 from .root.newton_raphson import calculate as newton_raphson_calculate
@@ -35,7 +35,7 @@ from .root.ridders import calculate as ridders_calculate
 
 from .visualization.plotter import plot_function
 
-__version__ = "3.3.0"
+__version__ = "3.4.0"
 
 __all__ = [
     "rectangle_integrate",
@@ -47,6 +47,7 @@ __all__ = [
     "jacobian_calculate",
     "gauss_method",
     "pivoting",
+    "determinant",
     "fd",
     "richardson_calculate",
     "taylor_approx",
