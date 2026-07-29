@@ -1,5 +1,5 @@
-from src.numerical_methods.root import ridders
-from src.numerical_methods.root import bisection, newton_raphson
+from src.numerical_methods.roots import ridders
+from src.numerical_methods.roots import bisection, newton_raphson
 
 def quadratic(x):
     return x ** 2 - 9

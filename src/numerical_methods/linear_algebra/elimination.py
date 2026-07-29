@@ -1,4 +1,4 @@
-def gauss_method(matrix):
+def gauss(matrix):
     """
     Upper-triangularizes a square matrix via Gaussian elimination,
     normalizing each pivot row to a unit diagonal.
@@ -85,31 +85,4 @@ def pivoting(matrix):
             p += 1
 
     return A, p
-
-
-def determinant(matrix):
-    """
-    Computes det(A) for a square matrix by triangularizing it
-    (with partial pivoting) and applying
-    det(A) = (-1)**p * prod(F_i).
-
-    Parameters
-    ----------
-    matrix : numpy.ndarray
-        Square (n x n) input matrix. Not modified.
-
-    Returns
-    -------
-    float
-        The determinant of matrix.
-    """
-
-    A_pivoted, p = pivoting(matrix)
-    _, factors = gauss_method(A_pivoted)
-
-    det = (-1) ** p
-    for f in factors:
-        det *= f
-
-    return det
 
