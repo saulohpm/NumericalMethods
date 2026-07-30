@@ -54,3 +54,46 @@ def LU(matrix):
                 
                 
     return L, U
+
+
+def cholesky(matrix):
+    """
+    Compute the Cholesky decomposition of a symmetric positive-definite matrix.
+
+    Parameters
+    ----------
+    matrix : array_like
+        Input square symmetric positive-definite matrix.
+
+    Returns
+    -------
+    U : ndarray
+        Upper triangular matrix such that A = U.T @ U.
+
+    Notes
+    -----
+    Cholesky decomposition requires the input matrix to be symmetric
+    and positive-definite.
+    """
+
+    A = matrix.copy()
+    n = len(A)
+    U = np.zeros((n, n))
+
+    for i in range(n):
+        for j in range(n):
+            soma = 0
+
+            if i == j:
+                for k in range(i):
+                    soma += U[k][i] ** 2
+
+                U[i][i] = np.sqrt(A[i][i] - soma)
+
+            elif j > i:
+                for k in range(i):
+                    soma += U[k][i] * U[k][j]
+
+                U[i][j] = (A[i][j] - soma) / U[i][i]
+
+    return U

@@ -1,7 +1,30 @@
 import numpy as np
 from . import elimination, decomposition
 
-def solve(A, b, method: str = "gauss"):
+def solve(A, b, method: str = "LU"):
+    """
+    Solve a linear system Ax = b using numerical decomposition methods.
+
+    Parameters
+    ----------
+    A : array_like
+        Coefficient matrix of the linear system.
+    b : array_like
+        Right-hand side vector.
+    method : str, optional
+        Solution method. Available options are "LU", "gauss", and
+        "cholesky".
+
+    Returns
+    -------
+    x : ndarray
+        Solution vector of the system.
+
+    Notes
+    -----
+    The default method uses LU decomposition. Gaussian elimination
+    with pivoting is also available for general systems.
+    """
 
     A = A.copy()
     b = b.copy()
@@ -24,7 +47,7 @@ def solve(A, b, method: str = "gauss"):
 
             x[i] = b_new[i] - soma
 
-    else:
+    elif method.upper() == "LU":
 
         L, U = decomposition.LU(A)
         n = len(L)
@@ -46,5 +69,28 @@ def solve(A, b, method: str = "gauss"):
                 soma += U[i][k] * x[k]
 
             x[i] = y[i] - soma
+
+    else:
+
+        U = decomposition.cholesky(A)
+        n = len(U)
+        y = np.zeros(n)
+        x = np.zeros(n)
+
+        for i in range(n):
+            soma = 0
+
+            for k in range(i):
+                soma += U[k][i] * y[k]
+
+            y[i] = (b[i] - soma) / U[i][i]
+
+        for i in range(n - 1, -1, -1):
+            soma = 0
+
+            for k in range(i + 1, n):
+                soma += U[i][k] * x[k]
+
+            x[i] = (y[i] - soma) / U[i][i]
 
     return x

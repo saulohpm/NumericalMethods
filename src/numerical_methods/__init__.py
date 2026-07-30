@@ -38,7 +38,7 @@ from .series.fourier import approx_function as fourier_approx
 
 from .visualization.plotter import plot_function
 
-__version__ = "3.6.0"
+__version__ = "3.7.0"
 
 __all__ = [
     "fd",
