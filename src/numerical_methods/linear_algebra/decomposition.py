@@ -54,4 +54,3 @@ def LU(matrix):
                 
                 
     return L, U
-

@@ -1,5 +1,5 @@
 import numpy as np
-from src.numerical_methods.linear_algebra import jacobian, elimination, decomposition, determinant
+from src.numerical_methods.linear_algebra import jacobian, elimination, decomposition, determinant, linear_system
 
 def F(x):
     return np.array([x[0] ** 2 + x[1], x[0] * x[1]])
@@ -32,9 +32,7 @@ assert np.abs(result_A - EXPECTED_determinant_A) < 1e-6
 
 # LU Decomposition (Crout)
 A = np.array([[2., 1., 1.], [4., -6., 0.], [-2., 7., 2.]])
-
 EXPECTED_L = np.array([[2., 0., 0.], [4., -8., 0.], [-2., 8., 1.]])
-
 EXPECTED_U = np.array([[1., 0.5, 0.5], [0., 1., 0.25], [0., 0., 1.]])
 
 L, U = decomposition.LU(A.copy())
@@ -45,3 +43,12 @@ assert np.allclose(np.tril(L), L)
 assert np.allclose(np.triu(U), U)
 assert np.allclose(np.diag(U), np.ones(A.shape[0]))
 assert np.allclose(L @ U, A)
+
+# Linear System Solver
+
+A = np.array([[2.0, 1.0, -1.0], [-3.0, -1.0, 2.0], [-2.0, 1.0, 2.0]])
+b = np.array([8.0, -11.0, -3.0])
+
+EXPECTED_solution = np.array([2.0, 3.0, -1.0])
+result = linear_system.solve(A, b)
+assert np.all(np.abs(result - EXPECTED_solution) < 1e-6)

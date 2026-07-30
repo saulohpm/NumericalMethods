@@ -24,9 +24,10 @@ from .integration.monte_carlo import integrate as monte_carlo_integrate
 from .integration.gauss_legendre import integrate as gauss_legendre_integrate
 
 from .linear_algebra.jacobian import calculate as jacobian_calculate
-from .linear_algebra import elimination
-from .linear_algebra import decomposition
+from .linear_algebra.elimination import gauss as gauss_elimination, pivoting as pivoting_elimination
+from .linear_algebra.decomposition import LU as lu_decomposition
 from .linear_algebra.determinant import calculate as determinant_calculate
+from .linear_algebra.linear_system import solve as linearsystem_solve
 
 from .roots.bisection import calculate as bisection_calculate
 from .roots.newton_raphson import calculate as newton_raphson_calculate
@@ -37,7 +38,7 @@ from .series.fourier import approx_function as fourier_approx
 
 from .visualization.plotter import plot_function
 
-__version__ = "3.5.0"
+__version__ = "3.6.0"
 
 __all__ = [
     "fd",
@@ -49,9 +50,11 @@ __all__ = [
     "monte_carlo_integrate",
     "gauss_legendre_integrate",
     "jacobian_calculate",
-    "elimination",
-    "decomposition",
+    "gauss_elimination",
+    "pivoting_elimination",
+    "lu_decomposition",
     "determinant_calculate",
+    "linearsystem_solve",
     "bisection_calculate",
     "newton_raphson_calculate",
     "ridders_calculate",
