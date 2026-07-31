@@ -3,12 +3,24 @@ NumericalMethods
 =================
 
 Educational implementations of classic numerical methods: numerical
-integration, differentiation, series approximation and simple
-visualization utilities.
+integration, differentiation, root finding, series approximation,
+linear algebra and simple visualization utilities.
+
+Modules:
+    integration       - rectangle, trapezoidal, Simpson (1st/2nd), Monte Carlo,
+                         Gauss-Legendre quadrature
+    differentiation    - forward/backward/central finite differences, Richardson
+                         extrapolation
+    root               - bisection, Newton-Raphson, Ridders' method
+    series             - Taylor and Fourier series approximation
+    linear_algebra     - Gauss elimination with pivoting, LU and Cholesky
+                         decomposition, determinant, linear system solve,
+                         Jacobian
+    visualization      - plotting utilities
 
 Usage:
     from numerical_methods import trapezoidal_integrate, fd
-    
+
     df = fd.central(f, x)
 """
 
@@ -38,7 +50,7 @@ from .series.fourier import approx_function as fourier_approx
 
 from .visualization.plotter import plot_function
 
-__version__ = "3.7.0"
+__version__ = "3.8.0"
 
 __all__ = [
     "fd",

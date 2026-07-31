@@ -1,2 +1,1 @@
 """Numerical linear algebra methods."""
-

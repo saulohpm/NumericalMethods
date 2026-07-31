@@ -97,3 +97,43 @@ def cholesky(matrix):
                 U[i][j] = (A[i][j] - soma) / U[i][i]
 
     return U
+
+def QR(matrix):
+    """
+    Compute the QR decomposition of a matrix using the modified
+    Gram-Schmidt algorithm.
+
+    Parameters
+    ----------
+    matrix : numpy.ndarray
+        Square matrix to decompose.
+
+    Returns
+    -------
+    tuple[numpy.ndarray, numpy.ndarray]
+        A tuple (Q, R), where Q is an orthogonal matrix and
+        R is an upper triangular matrix.
+    """
+
+    A = matrix.copy()
+    n = len(A)
+
+    U = np.zeros((n, n))
+    Q = np.zeros((n, n))
+    R = np.zeros((n, n))
+
+    for k in range(n):
+
+        U[:, k] = A[:, k]
+
+        for j in range(k):
+
+            R[j, k] = np.dot(U[:, k], Q[:, j])
+
+            U[:, k] = U[:, k] - R[j, k] * Q[:, j]
+
+        R[k, k] = np.linalg.norm(U[:, k])
+
+        Q[:, k] = U[:, k] / R[k, k]
+
+    return Q, R
