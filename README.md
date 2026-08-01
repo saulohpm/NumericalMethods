@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Version](https://img.shields.io/badge/version-3.8.0-orange)
+![Version](https://img.shields.io/badge/version-3.9.0-orange)
 
 A small Python library with implementations of classic numerical methods for
 integration, differentiation, and series approximation.

@@ -3,7 +3,7 @@ from . import elimination, decomposition
 
 def solve(A, b, method: str = "LU"):
     """
-    Solve a linear system Ax = b using numerical decomposition methods.
+    Solve a linear system Ax = b using direct numerical methods.
 
     Parameters
     ----------
@@ -12,18 +12,24 @@ def solve(A, b, method: str = "LU"):
     b : array_like
         Right-hand side vector.
     method : str, optional
-        Solution method. Available options are "LU", "gauss", and
-        "cholesky".
+        Solution method. Available options are:
+        - "LU" : LU decomposition (default).
+        - "gauss" : Gaussian elimination with partial pivoting.
+        - "cholesky" : Cholesky decomposition (for symmetric positive definite matrices).
+        - "QR" : QR decomposition.
 
     Returns
     -------
     x : ndarray
-        Solution vector of the system.
+        Solution vector of the linear system.
 
     Notes
     -----
-    The default method uses LU decomposition. Gaussian elimination
-    with pivoting is also available for general systems.
+    LU decomposition is used by default. Gaussian elimination, Cholesky
+    decomposition, and QR decomposition are also available. Cholesky
+    requires the coefficient matrix to be symmetric positive definite,
+    while QR decomposition is applicable to general matrices and is
+    particularly useful for numerically stable solutions.
     """
 
     A = A.copy()
@@ -70,7 +76,7 @@ def solve(A, b, method: str = "LU"):
 
             x[i] = y[i] - soma
 
-    else:
+    elif method == "cholesky":
 
         U = decomposition.cholesky(A)
         n = len(U)
@@ -92,5 +98,27 @@ def solve(A, b, method: str = "LU"):
                 soma += U[i][k] * x[k]
 
             x[i] = (y[i] - soma) / U[i][i]
+
+    else:
+
+        Q, R = decomposition.QR(A)
+        n = len(Q)
+        y = np.zeros(n)
+        x = np.zeros(n)
+
+        for i in range(n):
+            soma = 0
+            for j in range(n):
+                soma += Q[j][i] * b[j]
+
+            y[i] = soma
+
+        for i in range(n - 1, -1, -1):
+            soma = 0
+
+            for k in range(i + 1, n):
+                soma += R[i][k] * x[k]
+
+            x[i] = (y[i] - soma) / R[i][i]
 
     return x

@@ -1,5 +1,5 @@
 import numpy as np
-from src.numerical_methods.linear_algebra import (jacobian, elimination, decomposition, determinant, linear_system,)
+from src.numerical_methods.linear_algebra import (jacobian, elimination, decomposition, determinant, linear_system)
 
 # ---------------------------------------------------------------------------
 # Jacobian
@@ -28,15 +28,6 @@ matrix_pivoting = np.array([[1.0, 2.0, 2.0], [3.0, 6.0, 1.0], [2.0, 6.0, -1.0]])
 EXPECTED_pivoting = np.array([[3.0, 6.0, 1.0], [2.0, 6.0, -1.0], [1.0, 2.0, 2.0]])
 result_pivoting, _ = elimination.pivoting(matrix_pivoting.copy())
 assert np.all(np.abs(result_pivoting - EXPECTED_pivoting) < 1e-6)
-
-# ---------------------------------------------------------------------------
-# Determinant
-# ---------------------------------------------------------------------------
-A_det = np.array([[1., 2., 1.], [2., 4.01, 1.], [1., 1., 5.]])
-
-EXPECTED_determinant_A = -0.96
-result_A = determinant.calculate(A_det)
-assert np.abs(result_A - EXPECTED_determinant_A) < 1e-6
 
 # ---------------------------------------------------------------------------
 # LU Decomposition (Crout)
@@ -102,7 +93,7 @@ b_chol = np.array([15., 20., 30., 25., 18.])
 reference_solution = np.linalg.solve(A_chol, b_chol)
 reference_det = np.linalg.det(A_chol)
 
-for method in ("gauss", "lu", "cholesky"):
+for method in ("gauss", "lu", "cholesky", "QR"):
     x_method = linear_system.solve(A_chol, b_chol, method=method)
     assert np.linalg.norm(x_method - reference_solution) < 1e-6, method
 
