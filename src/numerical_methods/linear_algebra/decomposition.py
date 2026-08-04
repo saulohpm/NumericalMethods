@@ -18,6 +18,9 @@ def LU(matrix):
         Upper triangular matrix with unit diagonal.
     """
 
+    if matrix.shape[0] != matrix.shape[1]:
+        raise ValueError("ERROR: The matrix must be a square matrix.")
+
     n = len(matrix)
     A = matrix.copy()
     U = np.zeros((n, n))
@@ -75,6 +78,15 @@ def cholesky(matrix):
     Cholesky decomposition requires the input matrix to be symmetric
     and positive-definite.
     """
+
+    if matrix.ndim != 2:
+        raise ValueError("ERROR: The matrix must be two-dimensional.")
+
+    if matrix.shape[0] != matrix.shape[1]:
+        raise ValueError("ERROR: The matrix must be a square matrix.")
+
+    if not np.allclose(matrix, matrix.T):
+        raise ValueError("ERROR: The matrix must be equal to its transpose")
 
     A = matrix.copy()
     n = len(A)

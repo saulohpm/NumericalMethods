@@ -20,7 +20,7 @@ def forward(f, x0: float, deltax: float = 1e-5):
     """
     return (f(x0 + deltax) - f(x0)) / deltax
 
-def backward(f, x0, deltax = 1e-5):
+def backward(f, x0: float, deltax: float = 1e-5):
     """
     Approximate the derivative of f at x0 using the backward difference formula.
 
@@ -40,7 +40,7 @@ def backward(f, x0, deltax = 1e-5):
     """
     return (f(x0) - f(x0 - deltax)) / deltax
 
-def central(f, x0, deltax = 1e-5):
+def central(f, x0: float, deltax: float = 1e-5):
     """
     Approximate the derivative of f at x0 using the central difference formula.
 

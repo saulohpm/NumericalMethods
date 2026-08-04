@@ -42,4 +42,4 @@ def calculate(f, x0: float, n: int, tolerance: float = 1e-6):
 
         x_actual = x_new
 
-    raise ValueError("Did not converge within the maximum number of iterations.")
+    raise ValueError("ERROR: Did not converge within the maximum number of iterations.")

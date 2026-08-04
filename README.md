@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Version](https://img.shields.io/badge/version-3.9.0-orange)
+![Version](https://img.shields.io/badge/version-4.0.0-orange)
 
 A small Python library with implementations of classic numerical methods for
 integration, differentiation, and series approximation.
@@ -28,14 +28,20 @@ NumericalMethods/
 │   └── numerical_methods/
 │       ├── __init__.py
 │       │
+│       ├── differentiation/
+│       │   ├── __init__.py
+│       │   ├── finite_differences.py
+│       │   └── richardson.py
+│       │
 │       ├── integration/
 │       │   ├── __init__.py
+│       │   ├── gauss_legendre.py
+│       │   ├── midpoint.py
+│       │   ├── monte_carlo.py
 │       │   ├── rectangle.py
-│       │   ├── trapezoidal.py
 │       │   ├── simpson1.py
 │       │   ├── simpson2.py
-│       │   ├── monte_carlo.py
-│       │   └── gauss_legendre.py
+│       │   └── trapezoidal.py
 │       │
 │       ├── linear_algebra/
 │       │   ├── __init__.py
@@ -51,15 +57,10 @@ NumericalMethods/
 │       │   ├── newton_raphson.py
 │       │   └── ridders.py
 │       │
-│       ├── differentiation/
-│       │   ├── __init__.py
-│       │   ├── finite_differences.py
-│       │   └── richardson.py
-│       │
 │       ├── series/
 │       │   ├── __init__.py
-│       │   ├── taylor.py
-│       │   └── fourier.py
+│       │   ├── fourier.py
+│       │   └── taylor.py
 │       │
 │       └── visualization/
 │           ├── __init__.py
@@ -67,10 +68,10 @@ NumericalMethods/
 │
 └── tests/
     ├── __init__.py
-    ├── test_integration.py
     ├── test_differentiation.py
+    ├── test_integration.py
     ├── test_linear_algebra.py
-    ├── test_root.py
+    ├── test_roots.py
     └── test_series.py
 ```
 

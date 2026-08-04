@@ -74,4 +74,4 @@ def calculate(f, a: float, b: float, n: int, tolerance: float = 1e-6):
 
         if abs(b - a) < tolerance: return x
 
-    raise ValueError("Method did not converge")
+    raise ValueError("ERROR: Method did not converge")

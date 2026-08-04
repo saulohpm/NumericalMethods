@@ -29,7 +29,7 @@ def integrate(f, a: float, b: float, n: int = 5):
     soma = 0.0
 
     for i in range(n):
-        x = (b - a)/2 * r[i] + (a + b)/2
+        x = (b - a) / 2 * r[i] + (a + b) / 2
         soma += w[i] * f(x)
 
-    return (b - a)/2 * soma
+    return (b - a) / 2 * soma

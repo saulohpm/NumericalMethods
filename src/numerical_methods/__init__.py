@@ -30,6 +30,7 @@ from .differentiation.richardson import calculate as richardson_derivative
 
 from .integration.rectangle import integrate as rectangle_integrate
 from .integration.trapezoidal import integrate as trapezoidal_integrate
+from .integration.midpoint2 import integrate as midpoint2_integrate
 from .integration.simpson1 import integrate as simpson1_integrate
 from .integration.simpson2 import integrate as simpson2_integrate
 from .integration.monte_carlo import integrate as monte_carlo_integrate
@@ -37,7 +38,7 @@ from .integration.gauss_legendre import integrate as gauss_legendre_integrate
 
 from .linear_algebra.jacobian import calculate as jacobian_calculate
 from .linear_algebra.elimination import gauss as gauss_elimination, pivoting as pivoting_elimination
-from .linear_algebra.decomposition import LU as lu_decomposition
+from .linear_algebra.decomposition import LU as lu_decomposition, cholesky as cholesky_decomposition, QR as QR_decomposition
 from .linear_algebra.determinant import calculate as determinant_calculate
 from .linear_algebra.linear_system import solve as linearsystem_solve
 
@@ -50,13 +51,14 @@ from .series.fourier import approx_function as fourier_approx
 
 from .visualization.plotter import plot_function
 
-__version__ = "3.9.0"
+__version__ = "4.0.0"
 
 __all__ = [
     "fd",
     "richardson_derivative",
     "rectangle_integrate",
     "trapezoidal_integrate",
+    "midpoint2_integrate",
     "simpson1_integrate",
     "simpson2_integrate",
     "monte_carlo_integrate",
@@ -65,6 +67,8 @@ __all__ = [
     "gauss_elimination",
     "pivoting_elimination",
     "lu_decomposition",
+    "cholesky_decomposition",
+    "QR_decomposition",
     "determinant_calculate",
     "linearsystem_solve",
     "bisection_calculate",

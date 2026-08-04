@@ -35,6 +35,9 @@ def solve(A, b, method: str = "LU"):
     A = A.copy()
     b = b.copy()
 
+    if A.shape[0] != A.shape[1] or A.shape[0] != b.shape[0]:
+        raise ValueError("ERROR: The linear system must be 'A[n×n] * x[n] = b[n]'")
+
     if method == "gauss":
 
         A_tilde = np.column_stack((A, b))

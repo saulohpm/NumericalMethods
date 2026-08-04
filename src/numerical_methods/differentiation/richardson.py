@@ -1,6 +1,6 @@
 from .finite_differences import central
 
-def calculate(f, x0, h):
+def calculate(f, x0: float, h: float):
     """
     Improves the accuracy of a numerical derivative using Richardson
     extrapolation on the central finite difference method.
