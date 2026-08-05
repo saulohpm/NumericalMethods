@@ -29,7 +29,7 @@ from .differentiation import finite_differences as fd
 from .differentiation.richardson import calculate as richardson_derivative
 
 from .integration.rectangle import integrate as rectangle_integrate
-from .integration.trapezoidal import integrate as trapezoidal_integrate
+from .integration import trapezoidal
 from .integration import midpoint
 from .integration.simpson1 import integrate as simpson1_integrate
 from .integration.simpson2 import integrate as simpson2_integrate
@@ -51,13 +51,13 @@ from .series.fourier import approx_function as fourier_approx
 
 from .visualization.plotter import plot_function
 
-__version__ = "4.1"
+__version__ = "4.2"
 
 __all__ = [
     "fd",
     "richardson_derivative",
     "rectangle_integrate",
-    "trapezoidal_integrate",
+    "trapezoidal",
     "midpoint",
     "simpson1_integrate",
     "simpson2_integrate",
