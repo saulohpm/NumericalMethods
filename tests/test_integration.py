@@ -3,7 +3,7 @@ from src.numerical_methods.integration.trapezoidal import integrate as trapezoid
 from src.numerical_methods.integration.simpson1 import integrate as simpson1
 from src.numerical_methods.integration.simpson2 import integrate as simpson2
 from src.numerical_methods.integration.gauss_legendre import integrate as gauss_legendre
-from src.numerical_methods.integration.midpoint2 import integrate as midpoint2
+from numerical_methods.integration import midpoint
 
 def f(x):
     return x ** 2
@@ -31,4 +31,4 @@ def F(x, y):
 EXPECTED2 = 2 / 3
 
 def test_midpoint2():
-    assert abs(midpoint2(F, 0, 1, 0, 2, 1000, 1000) - EXPECTED2) < 1e-3
+    assert abs(midpoint.double_integrate(F, 0, 1, 0, 2, 1000, 1000) - EXPECTED2) < 1e-3
