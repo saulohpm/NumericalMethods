@@ -38,7 +38,7 @@ def solve(A, b, method: str = "LU"):
     if A.shape[0] != A.shape[1] or A.shape[0] != b.shape[0]:
         raise ValueError("ERROR: The linear system must be 'A[n×n] * x[n] = b[n]'")
 
-    if method == "gauss":
+    if method.lower() == "gauss":
 
         A_tilde = np.column_stack((A, b))
         A_pivoted = elimination.pivoting(A_tilde)[0]
@@ -79,7 +79,7 @@ def solve(A, b, method: str = "LU"):
 
             x[i] = y[i] - soma
 
-    elif method == "cholesky":
+    elif method.lower() == "cholesky":
 
         U = decomposition.cholesky(A)
         n = len(U)
@@ -102,7 +102,7 @@ def solve(A, b, method: str = "LU"):
 
             x[i] = (y[i] - soma) / U[i][i]
 
-    else:
+    elif method.upper() == "QR":
 
         Q, R = decomposition.QR(A)
         n = len(Q)

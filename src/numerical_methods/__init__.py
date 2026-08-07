@@ -25,12 +25,18 @@ Usage:
 """
 
 # src/numerical_methods/__init__.py
-from .differentiation import finite_differences as fd
+from .differentiation.finite_differences import forward as fd_forward_derivative
+from .differentiation.finite_differences import backward as fd_backward_derivative
+from .differentiation.finite_differences import central as fd_central_derivative
+from .differentiation.finite_differences import central_nth as fd_nth_derivative
 from .differentiation.richardson import calculate as richardson_derivative
 
 from .integration.rectangle import integrate as rectangle_integrate
-from .integration import trapezoidal
-from .integration import midpoint
+from .integration.trapezoidal import integrate as trapezoidal_integrate
+from .integration.trapezoidal import double_integrate as trapezoidal_double_integrate
+from .integration.midpoint import integrate as midpoint_integrate
+from .integration.midpoint import double_integrate as midpoint_double_integrate
+from .integration.midpoint import triple_integrate as midpoint_triple_integrate
 from .integration.simpson1 import integrate as simpson1_integrate
 from .integration.simpson2 import integrate as simpson2_integrate
 from .integration.monte_carlo import integrate as monte_carlo_integrate
@@ -51,18 +57,29 @@ from .series.fourier import approx_function as fourier_approx
 
 from .visualization.plotter import plot_function
 
-__version__ = "4.2"
+__version__ = "4.4"
 
 __all__ = [
-    "fd",
+    # Differentiation
+    "fd_forward_derivative",
+    "fd_backward_derivative",
+    "fd_central_derivative",
+    "fd_nth_derivative",
     "richardson_derivative",
+
+    # Integration
     "rectangle_integrate",
-    "trapezoidal",
-    "midpoint",
+    "trapezoidal_integrate",
+    "trapezoidal_double_integrate",
+    "midpoint_integrate",
+    "midpoint_double_integrate",
+    "midpoint_triple_integrate",
     "simpson1_integrate",
     "simpson2_integrate",
     "monte_carlo_integrate",
     "gauss_legendre_integrate",
+
+    # Linear Algebra
     "jacobian_calculate",
     "gauss_elimination",
     "pivoting_elimination",
@@ -71,10 +88,16 @@ __all__ = [
     "QR_decomposition",
     "determinant_calculate",
     "linearsystem_solve",
+
+    # Root Finding
     "bisection_calculate",
     "newton_raphson_calculate",
     "ridders_calculate",
+
+    # Series
     "taylor_approx",
     "fourier_approx",
-    "plot_function"
+
+    # Visualization
+    "plot_function",
 ]
