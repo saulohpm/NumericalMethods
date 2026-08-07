@@ -66,7 +66,7 @@ from .series.fourier import approx_function as fourier_approx
 
 from .visualization.plotter import plot_function
 
-__version__ = "4.4"
+__version__ = "4.6"
 
 __all__ = [
     # Differentiation

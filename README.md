@@ -2,55 +2,11 @@
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Version](https://img.shields.io/badge/version-4.4-orange)
+![Version](https://img.shields.io/badge/version-4.6-orange)
 
-Educational Python library implementing classical numerical methods from scratch, including root finding, numerical integration, differentiation, linear algebra, Fourier and Taylor series, with unit tests and performance benchmarks.
 Educational Python library implementing classical numerical methods from scratch, including root finding, numerical integration, differentiation, linear algebra, Fourier and Taylor series, with unit tests and performance benchmarks.
 
 This started as a study project to practice numerical analysis concepts and has since been reorganized as an installable Python package, with unit tests and docstrings, as a way to also practice good project structure.
-
-## Installation
-
-```bash
-gh repo clone saulohpm/NumericalMethods
-cd NumericalMethods
-pip install -e ".[dev]"
-```
-
-This installs the package in editable mode, along with `pytest` for running
-the tests.
-
-## Usage
-
-```python
-import numerical_methods as nm
-
-f = lambda x: x ** 2
-result = nm.trapezoidal_integrate(f, 0, 1, n = 1000)
-print(result)
-```
-
-For more detailed examples, including comparisons between methods and
-plots, see **[Demonstration Notebook](examples/demonstration.ipynb)**.
-
-## Benchmarks
-
-Performance benchmarks comparing the implemented methods are available in **[Benchmark Notebook](examples/benchmark.ipynb)**
-
-The notebook compares execution time, numerical error, and convergence against SciPy and numpy reference implementations.
-
-## Notes and limitations
-
-This project is meant for learning and experimentation, not for
-production-grade numerical computing (for that, `numpy`/`scipy` are the
-better choice). Some things worth knowing if you look at the code:
-
-* The Taylor series approximation builds higher-order derivatives by
-  repeatedly applying finite differences, which is numerically fragile —
-  the default step size was chosen to keep results stable for a
-  reasonable range of inputs, but it isn't a general-purpose solution.
-* Methods are implemented directly from their mathematical definitions,
-  favoring clarity over performance.
 
 ## Installation
 
@@ -162,10 +118,6 @@ NumericalMethods/
     └── test_series.py
 ```
 
-## References
-- Linge, S., & Langtangen, H. P. *Programming for Computations – Python: A Gentle Introduction to Numerical Simulations with Python 3.6*. 2nd ed. Springer, 2019. Available at: https://link.springer.com/book/10.1007/978-3-030-16877-3
-
-- Cardoso, E. L. *Fundamentos de Cálculo Numérico: Notas de Aula*. PPGEM. Available at: <https://github.com/CodeLenz/Notas-de-aula/blob/main/Fundamentos%20de%20Matem%C3%A1tica/Fundamentos_de_Algebra_Computacional.pdf>.
 ## References
 - Linge, S., & Langtangen, H. P. *Programming for Computations – Python: A Gentle Introduction to Numerical Simulations with Python 3.6*. 2nd ed. Springer, 2019. Available at: https://link.springer.com/book/10.1007/978-3-030-16877-3
 

@@ -1,5 +1,5 @@
 import numpy as np
-from src.numerical_methods.linear_algebra import (jacobian, elimination, decomposition, determinant, linear_system)
+from src.numerical_methods.linear_algebra import (jacobian, elimination, decomposition, determinant, linear_system, eigenvalues)
 
 # ---------------------------------------------------------------------------
 # Jacobian
@@ -102,3 +102,46 @@ for method in ("gauss", "lu"):
     assert np.abs(det_method - reference_det) < 1e-6, method
 
 print("All linear_algebra tests PASSED.")
+
+from src.numerical_methods.linear_algebra.eigenvalues import power_method, inverse_power_method
+
+# ---------------------------------------------------------------------------
+# Eigenvalues
+# ---------------------------------------------------------------------------
+A = np.array([[5.0, 0.0],
+              [0.0, 2.0]])
+
+X0 = np.array([1.0, 1.0])
+
+EXPECTED_MAX = 5.0
+EXPECTED_MIN = 2.0
+
+
+def test_power_method():
+    eigenvalue, _ = power_method(A, X0, tol = 1e-10, n=100)
+
+    assert abs(eigenvalue - EXPECTED_MAX) < 1e-8
+
+
+def test_inverse_power_method():
+    eigenvalue, _ = inverse_power_method(A, X0, tol = 1e-10, n=100)
+
+    assert abs(eigenvalue - EXPECTED_MIN) < 1e-8
+
+# ---------------------------------------------------------------------------
+# Eigenvectors
+# ---------------------------------------------------------------------------
+def test_power_method_eigenvector():
+    _, eigenvector = power_method(A, X0, tol = 1e-10, n=100)
+
+    expected = np.array([1.0, 0.0])
+
+    assert np.allclose(np.abs(eigenvector), expected, atol = 1e-5)
+
+
+def test_inverse_power_method_eigenvector():
+    _, eigenvector = inverse_power_method(A, X0, tol = 1e-10, n=100)
+
+    expected = np.array([0.0, 1.0])
+
+    assert np.allclose(np.abs(eigenvector), expected, atol = 1e-5)
