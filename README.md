@@ -1,12 +1,20 @@
 # Numerical Methods
 
-![Python](https://img.shields.io/badge/python-3.9%2B-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-![Version](https://img.shields.io/badge/version-4.6-orange)
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Version](https://img.shields.io/badge/Version-4.7-orange)
 
 Educational Python library implementing classical numerical methods from scratch, including root finding, numerical integration, differentiation, linear algebra, Fourier and Taylor series, with unit tests and performance benchmarks.
 
 This started as a study project to practice numerical analysis concepts and has since been reorganized as an installable Python package, with unit tests and docstrings, as a way to also practice good project structure.
+
+## Implemented Methods
+
+- **Root finding:** bisection, Newton-Raphson, Ridders
+- **Integration:** trapezoidal, midpoint, rectangle, Simpson (1st and 2nd), Gauss-Legendre, Monte Carlo
+- **Differentiation:** finite differences, Richardson extrapolation
+- **Series:** Taylor, Fourier
+- **Linear algebra:** Gaussian elimination, LU decomposition, Cholesky decomposition, determinant, eigenvalues, Jacobian, linear systems
 
 ## Installation
 
@@ -27,6 +35,7 @@ import numerical_methods as nm
 f = lambda x: x ** 2
 result = nm.trapezoidal_integrate(f, 0, 1, n = 1000)
 print(result)
+# 0.33333349999999995
 ```
 
 For more detailed examples, including comparisons between methods and
@@ -45,11 +54,8 @@ production-grade numerical computing (for that, `numpy`/`scipy` are the
 better choice). Some things worth knowing if you look at the code:
 
 * The Taylor series approximation builds higher-order derivatives by
-  repeatedly applying finite differences, which is numerically fragile —
-  the default step size was chosen to keep results stable for a
-  reasonable range of inputs, but it isn't a general-purpose solution.
-* Methods are implemented directly from their mathematical definitions,
-  favoring clarity over performance.
+  repeatedly applying finite differences, which is numerically fragile, the default step size was chosen to keep results stable for a reasonable range of inputs, but it isn't a general-purpose solution.
+* Methods are implemented directly from their mathematical definitions, favoring clarity over performance.
 
 ## Project structure
 
