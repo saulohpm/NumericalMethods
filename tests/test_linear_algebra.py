@@ -118,21 +118,31 @@ EXPECTED_MIN = 2.0
 
 
 def test_power_method():
-    eigenvalue, _ = power_method(A, X0, tol = 1e-10, n=100)
+    eigenvalue, _ = power_method(A, X0, tol = 1e-10, n = 100)
 
     assert abs(eigenvalue - EXPECTED_MAX) < 1e-8
 
 
 def test_inverse_power_method():
-    eigenvalue, _ = inverse_power_method(A, X0, tol = 1e-10, n=100)
+    eigenvalue, _ = inverse_power_method(A, X0, tol = 1e-10, n = 100)
 
     assert abs(eigenvalue - EXPECTED_MIN) < 1e-8
+
+
+def test_jacobi_method_eigenvalues():
+    A_result, _ = eigenvalues.jacobi_method(A, n = 100)
+
+    computed_max = np.max(np.diag(A_result))
+    computed_min = np.min(np.diag(A_result))
+
+    assert abs(computed_max - EXPECTED_MAX) < 1e-8
+    assert abs(computed_min - EXPECTED_MIN) < 1e-8
 
 # ---------------------------------------------------------------------------
 # Eigenvectors
 # ---------------------------------------------------------------------------
 def test_power_method_eigenvector():
-    _, eigenvector = power_method(A, X0, tol = 1e-10, n=100)
+    _, eigenvector = eigenvalues.power_method(A, X0, tol = 1e-10, n = 100)
 
     expected = np.array([1.0, 0.0])
 
@@ -140,8 +150,17 @@ def test_power_method_eigenvector():
 
 
 def test_inverse_power_method_eigenvector():
-    _, eigenvector = inverse_power_method(A, X0, tol = 1e-10, n=100)
+    _, eigenvector = eigenvalues.inverse_power_method(A, X0, tol = 1e-10, n = 100)
 
     expected = np.array([0.0, 1.0])
 
     assert np.allclose(np.abs(eigenvector), expected, atol = 1e-5)
+
+
+def test_jacobi_method_eigenvalues():
+    A_result, _ = eigenvalues.jacobi_method(A, n = 100)
+
+    computed = np.sort(np.diag(A_result))
+    expected = np.sort(np.linalg.eigvalsh(A))
+
+    assert np.allclose(computed, expected, atol = 1e-5)

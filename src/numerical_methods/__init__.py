@@ -55,6 +55,9 @@ from .linear_algebra.jacobian import calculate as jacobian_calculate
 from .linear_algebra.elimination import gauss as gauss_elimination, pivoting as pivoting_elimination
 from .linear_algebra.decomposition import LU as lu_decomposition, cholesky as cholesky_decomposition, QR as QR_decomposition
 from .linear_algebra.determinant import calculate as determinant_calculate
+from .linear_algebra.eigenvalues import power_method as power_method_calculate
+from .linear_algebra.eigenvalues import inverse_power_method as inverse_power_method_calculate
+from .linear_algebra.eigenvalues import jacobi_method as jacobi_method_calculate
 from .linear_algebra.linear_system import solve as linearsystem_solve
 
 from .roots.bisection import calculate as bisection_calculate
@@ -66,7 +69,7 @@ from .series.fourier import approx_function as fourier_approx
 
 from .visualization.plotter import plot_function
 
-__version__ = "4.6"
+__version__ = "4.8"
 
 __all__ = [
     # Differentiation
@@ -74,14 +77,6 @@ __all__ = [
     "fd_backward_derivative",
     "fd_central_derivative",
     "fd_nth_derivative",
-    # Differentiation
-    "fd_forward_derivative",
-    "fd_backward_derivative",
-    "fd_central_derivative",
-    "fd_nth_derivative",
-    "richardson_derivative",
-
-    # Integration
 
     # Integration
     "rectangle_integrate",
@@ -101,8 +96,6 @@ __all__ = [
     "gauss_legendre_integrate",
 
     # Linear Algebra
-
-    # Linear Algebra
     "jacobian_calculate",
     "gauss_elimination",
     "pivoting_elimination",
@@ -110,16 +103,15 @@ __all__ = [
     "cholesky_decomposition",
     "QR_decomposition",
     "determinant_calculate",
+    "power_method_calculate",
+    "inverse_power_method_calculate",
+    "jacobi_method_calculate",
     "linearsystem_solve",
-
-    # Root Finding
 
     # Root Finding
     "bisection_calculate",
     "newton_raphson_calculate",
     "ridders_calculate",
-
-    # Series
 
     # Series
     "taylor_approx",
