@@ -167,19 +167,6 @@ from .visualization.plotter import (
     plot_function,
 )
 
-
-# ---------------------------------------------------------------------------
-# Differentiation
-# ---------------------------------------------------------------------------
-
-from .differentiation.finite_differences import forward as fd_forward_derivative
-from .differentiation.finite_differences import backward as fd_backward_derivative
-from .differentiation.finite_differences import central as fd_central_derivative
-from .differentiation.finite_differences import central_nth as fd_nth_derivative
-
-from .differentiation.richardson import calculate as richardson_derivative
-
-
 # ---------------------------------------------------------------------------
 # Package Metadata
 # ---------------------------------------------------------------------------
