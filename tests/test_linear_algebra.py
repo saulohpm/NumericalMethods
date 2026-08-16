@@ -1,5 +1,6 @@
 import numpy as np
 from numerical_methods.linear_algebra import (jacobian, elimination, decomposition, determinant, linear_system, eigenvalues)
+from numerical_methods.linear_algebra.eigenvalues import power_method, inverse_power_method
 
 # ---------------------------------------------------------------------------
 # Jacobian
@@ -102,8 +103,6 @@ for method in ("gauss", "lu"):
     assert np.abs(det_method - reference_det) < 1e-6, method
 
 print("All linear_algebra tests PASSED.")
-
-from src.numerical_methods.linear_algebra.eigenvalues import power_method, inverse_power_method
 
 # ---------------------------------------------------------------------------
 # Eigenvalues
