@@ -1,9 +1,9 @@
-from src.numerical_methods.integration.rectangle import integrate as rectangle
-from src.numerical_methods.integration.simpson1 import integrate as simpson1
-from src.numerical_methods.integration.simpson2 import integrate as simpson2
-from src.numerical_methods.integration.gauss_legendre import integrate as gauss_legendre
-from src.numerical_methods.integration import midpoint
-from src.numerical_methods.integration import trapezoidal
+from numerical_methods.integration.rectangle import integrate as rectangle
+from numerical_methods.integration.simpson1 import integrate as simpson1
+from numerical_methods.integration.simpson2 import integrate as simpson2
+from numerical_methods.integration.gauss_legendre import integrate as gauss_legendre
+from numerical_methods.integration import midpoint
+from numerical_methods.integration import trapezoidal
 
 def f(x):
     return x ** 2

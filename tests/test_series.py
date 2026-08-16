@@ -1,7 +1,7 @@
 import math
 
-from src.numerical_methods.series.fourier import approx_function as fourier
-from src.numerical_methods.series.taylor import approx_function as taylor
+from numerical_methods.series.fourier import approx_function as fourier
+from numerical_methods.series.taylor import approx_function as taylor
 
 def test_fourier_cos():
     result = fourier(math.cos, math.pi / 4, L = math.pi, n = 5)

@@ -1,5 +1,5 @@
 import numpy as np
-from src.numerical_methods.linear_algebra import (jacobian, elimination, decomposition, determinant, linear_system, eigenvalues)
+from numerical_methods.linear_algebra import (jacobian, elimination, decomposition, determinant, linear_system, eigenvalues)
 
 # ---------------------------------------------------------------------------
 # Jacobian

@@ -1,5 +1,5 @@
-from src.numerical_methods.differentiation.finite_differences import forward, backward, central
-from src.numerical_methods.differentiation import richardson
+from numerical_methods.differentiation.finite_differences import forward, backward, central
+from numerical_methods.differentiation import richardson
 
 EXPECTED = 6
 
