@@ -30,17 +30,14 @@ linear_algebra
 visualization
     Simple plotting utilities.
 
-Examples
+Example
 --------
 >>> import numerical_methods as nm
 
->>> f = lambda x: x**2
->>> result = nm.trapezoidal_integrate(f, 0, 1, n=1000)
-
-For finite differences:
-
->>> from numerical_methods import fd
->>> derivative = fd.central(f, 1.0)
+>>> f = lambda x: x ** 2
+>>> result = nm.trapezoidal_integrate(f, 0, 1, n = 1000)
+>>> print(result)
+>>> # 0.33333349999999995
 """
 
 # ---------------------------------------------------------------------------

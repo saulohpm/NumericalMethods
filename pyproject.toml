@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "numerical-methods"
-version = "5.2"
-description = "Educational implementations of classic numerical methods"
+version = "5.4"
+description = "Educational Python solver for Numerical Analysis and Scientific Computing"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = ["numpy", "scipy", "matplotlib"]
